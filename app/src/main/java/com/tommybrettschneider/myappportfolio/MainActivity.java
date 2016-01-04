@@ -1,3 +1,6 @@
+/**
+ * Copyright (C) 2016 Tommy Brettschneider
+ */
 package com.tommybrettschneider.myappportfolio;
 
 import android.os.Bundle;
@@ -9,6 +12,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+/**
+ * This app's main activity.
+ */
 public class MainActivity extends AppCompatActivity {
 
     @Override
