@@ -27,6 +27,13 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        addCustomButtons();
+    }
+
+    /**
+     * Adds custom buttons that will display a toast on click.
+     */
+    private void addCustomButtons() {
         final Map<Integer, Integer> map_viewId_toastString = new HashMap<Integer, Integer>(){
             {
                 put(R.id.button1, R.string.btn_toast_app1);
