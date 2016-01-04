@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
         final Map<Integer, Integer> map_viewId_toastString = new HashMap<Integer, Integer>(){
             {
-                put(R.id.button, R.string.btn_toast_app1);
+                put(R.id.button1, R.string.btn_toast_app1);
                 put(R.id.button2, R.string.btn_toast_app2);
                 put(R.id.button3, R.string.btn_toast_app3);
                 put(R.id.button4, R.string.btn_toast_app4);
