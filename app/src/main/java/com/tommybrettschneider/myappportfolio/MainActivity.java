@@ -12,6 +12,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * This app's main activity.
  */
@@ -24,53 +27,27 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        Button button = (Button)findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(v.getContext(), R.string.btn_toast_app1, Toast.LENGTH_SHORT).show();
+        final Map<Integer, Integer> map_viewId_toastString = new HashMap<Integer, Integer>(){
+            {
+                put(R.id.button, R.string.btn_toast_app1);
+                put(R.id.button2, R.string.btn_toast_app2);
+                put(R.id.button3, R.string.btn_toast_app3);
+                put(R.id.button4, R.string.btn_toast_app4);
+                put(R.id.button5, R.string.btn_toast_app5);
+                put(R.id.button6, R.string.btn_toast_app6);
             }
-        });
+        };
 
-        button = (Button)findViewById(R.id.button2);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(v.getContext(), R.string.btn_toast_app2, Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        button = (Button)findViewById(R.id.button3);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(v.getContext(), R.string.btn_toast_app3, Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        button = (Button)findViewById(R.id.button4);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(v.getContext(), R.string.btn_toast_app4, Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        button = (Button)findViewById(R.id.button5);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(v.getContext(), R.string.btn_toast_app5, Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        button = (Button)findViewById(R.id.button6);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(v.getContext(), R.string.btn_toast_app6, Toast.LENGTH_SHORT).show();
-            }
-        });
+        for (final Integer viewId : map_viewId_toastString.keySet()) {
+            Button button = (Button)findViewById(viewId);
+            final Integer toastString = map_viewId_toastString.get(viewId);
+            button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(v.getContext(), toastString, Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
     }
 
     @Override
