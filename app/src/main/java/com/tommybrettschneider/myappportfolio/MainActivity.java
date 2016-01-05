@@ -20,6 +20,17 @@ import java.util.Map;
  */
 public class MainActivity extends AppCompatActivity {
 
+    private static final Map<Integer, Integer> MAP_VIEW_ID_TOAST_STRING = new HashMap<Integer, Integer>() {
+        {
+            put(R.id.button1, R.string.btn_toast_app1);
+            put(R.id.button2, R.string.btn_toast_app2);
+            put(R.id.button3, R.string.btn_toast_app3);
+            put(R.id.button4, R.string.btn_toast_app4);
+            put(R.id.button5, R.string.btn_toast_app5);
+            put(R.id.button6, R.string.btn_toast_app6);
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,20 +45,10 @@ public class MainActivity extends AppCompatActivity {
      * Adds custom buttons that will display a toast on click.
      */
     private void addCustomButtons() {
-        final Map<Integer, Integer> map_viewId_toastString = new HashMap<Integer, Integer>(){
-            {
-                put(R.id.button1, R.string.btn_toast_app1);
-                put(R.id.button2, R.string.btn_toast_app2);
-                put(R.id.button3, R.string.btn_toast_app3);
-                put(R.id.button4, R.string.btn_toast_app4);
-                put(R.id.button5, R.string.btn_toast_app5);
-                put(R.id.button6, R.string.btn_toast_app6);
-            }
-        };
 
-        for (final Integer viewId : map_viewId_toastString.keySet()) {
+        for (final Integer viewId : MAP_VIEW_ID_TOAST_STRING.keySet()) {
             Button button = (Button)findViewById(viewId);
-            final Integer toastString = map_viewId_toastString.get(viewId);
+            final Integer toastString = MAP_VIEW_ID_TOAST_STRING.get(viewId);
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
